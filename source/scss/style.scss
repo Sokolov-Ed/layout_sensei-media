@@ -1,0 +1,479 @@
+%flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+%equal_indents {
+	flex: 1 1 auto;
+	margin: 0 5px;
+}
+%data-input {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 26px;
+	color: #333;
+	padding: 16px 2px 17px 19px;
+	background: #fff;
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+	border-radius: 7px;
+	border: none;
+	outline: none;
+}
+@mixin text-style($font-weight, $font-size, $line-height, $color) {
+	font-weight: $font-weight;
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $color;
+}
+body {
+	margin: 0;
+	background-color: #F7F6FF;
+	font-family: "Manrope";
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+.header {
+	@extend %flex;
+	width: 100%;
+	height: 85px;
+	background-color: #fff;
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+	.header__logo {
+		@extend %flex;
+		@extend %equal_indents;
+		height: 70px;
+	}
+	.header__menu {
+		@extend %flex;
+		@extend %equal_indents;
+		height: 24px;
+		padding: 0;
+		ul {
+			@extend %flex;
+			@include text-style(500, 16px, 24px, #333);
+			width: 385px;
+			margin: 0;
+			padding: 0 5px;
+			user-select: none;
+			li {
+				@extend %equal_indents;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+	.header__order {
+		@extend %flex;
+		@extend %equal_indents;
+		button {
+			width: 205px;
+			height: 54px;
+			background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+			border-radius: 9px;
+			border: none;
+			@include text-style(600, 16px, 26px, #fff);
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+.about-services {
+	@extend %flex;
+	flex-wrap: wrap;
+	margin: 82px 100px;
+	min-height: 325px;
+	height: max-content;
+	.about-services__about {
+		margin-left: 0;
+		.about_studio_first-title {
+			@include text-style(800, 45px, 65px, #333);
+		}
+		.about_studio_second-title {
+			@include text-style(500, 55px, 65px, #333);
+		}
+		.about_studio_subtitle {
+			margin-top: 14px;
+			@include text-style(600, 16px, 24px, #333);
+		}
+		.about_studio_buttons-field {
+			@extend %flex;
+			margin: 29px -10px 10px;
+			button {
+				@extend %equal_indents;
+				margin: 0 10px;
+				width: max-content;
+				padding: 0 25px;
+				height: 54px;
+				background: #77B2D3;
+				border-radius: 250px;
+				border: none;
+				@include text-style(600, 16px, 26px, #fff);
+				&:hover {
+					background: #50B2D3;
+				}
+			}
+		}
+	}
+	.about-services__logo {
+		margin-left: auto;
+		margin-right: 0;
+		img {
+			width: 573px;
+			height: 325px;
+		}
+	}
+}
+.design-skills {
+	margin: 90px 115px;
+	background: #fff;
+	box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	padding: 40px 55px;
+	.design-skills__title {
+		@include text-style(bold, 38px, 48px, #333);
+	}
+	.skills-field {
+		width: 100%;
+		@extend %flex;
+		margin-top: 35px;
+		.skills-field_skill-field {
+			margin: 0 10px;
+			@extend %equal_indents;
+			.skills-field_skill-field_title {
+				@include text-style(800, 30px, 48px, #333);
+				background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			.skills-field_skill-field_subtitle {
+				margin-top: 3px;
+				@include text-style(500, 16px, 24px, #333);
+				word-break: normal;
+			}
+		}
+		.skills-field_vertical-line {
+			width: 86px;
+			height: 0px;
+			border: 1px solid #C7C7C7;
+			transform: rotate(90deg);
+		}
+	}
+}
+@media (max-width: 1000px) {
+	.skills-field_skill-field_title {
+		font-size: 20px;
+	};
+	.skills-field_skill-field_subtitle {
+		font-size: 14px;
+		word-break: normal;
+	}
+	.skills-field_vertical-line {
+		display: none;
+	}
+	.skills-field {
+		flex-wrap: wrap;
+	}
+}
+.services {
+	margin: 76px 115px;
+	.services__title {
+		@include text-style(bold, 38px, 48px, #333);
+	}
+	.services-field {
+		@extend %flex;
+		flex-wrap: wrap;
+		height: max-content;
+		.services-field_service {
+			margin-top: 41px;
+			@extend %equal_indents;
+			@extend %flex;
+			flex-direction: column;
+			.services-field_service_card {
+				display: flex;
+				flex-direction: column;
+				width: 210px;
+				height: 378px;
+				background: #fff;
+				box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+				border-radius: 15px;
+				.services-field_service_card_title {
+					@extend %flex;
+					padding: 0 15px;
+					height: 74px;
+					background: #77B2D3;
+					box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+					border-radius: 15px 15px 0px 0px;
+					color: #fff;
+					@include text-style(800, 18px, 26px, #fff);
+					word-break: normal;
+					text-align: center;
+				}
+				ul {
+					padding: 0 2.5px;
+					li {
+						display: flex;
+						align-items: center;
+						@include text-style(normal, 16px, 24px, #333);
+						margin: 7px 0px;
+						img {
+							margin: 0 6px 0 14px;
+							user-select: none;
+						}
+					}
+				}
+				.services-field_service_card_price {
+					text-align: center;
+					padding: 11px;
+					margin: auto 5px 0 5px;
+					border-top: 1px solid #E2E2E2;
+					@include text-style(400, 16px, 24px, #333);
+					user-select: none;
+					span {
+						font-weight: 800;
+						font-size: 26px;
+						background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
+			.services-field_service_more {
+				margin-top: 21px;
+				button {
+					width: 180px;
+					height: 50px;
+					background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+					border-radius: 9px;
+					border: none;
+					@include text-style(600, 16px, 26px, #fff);
+					&:hover {
+						transform: scale(1.05);
+					}
+				}
+			}
+		}
+	}
+}
+.specialist-order-field {
+	@extend %flex;
+	flex-wrap: wrap;
+	margin: 90px 115px;
+	height: max-content;
+	.form-data {
+		width: 500px;
+		.form-data_title {
+			@include text-style(bold, 38px, 48px, #333);
+		}
+		.form-data_subtitle {
+			margin-top: 20px;
+			@include text-style(normal, 16px, 26px, #333);
+		}
+		.form-data_data-input {
+			margin-top: 22px;
+			.input-field {
+				@extend %flex;
+				width: 516px;
+				margin-left: -10px;
+				input {
+					@extend %equal_indents;
+					margin: 0 10px;
+					height: 10px;
+					@extend %data-input;
+				}
+			}
+			textarea {
+				margin-top: 20px;
+				width: 475px;
+				height: 115px;
+				resize: none;
+				@extend %data-input;
+			}
+			.checkbox-field {
+				@extend %flex;
+				width: max-content;
+				margin: 20px 0;
+				input {
+					position: absolute;
+					z-index: -1;
+					opacity: 0;
+				}
+				input+label::before {
+					content: '';
+					display: inline-block;
+					width: 30px;
+					height: 30px;
+					margin-right: 12px;
+					padding: 0;
+					@extend %data-input;
+				}
+				input:not(:disabled):not(:checked)+label:hover::before {
+					background-color: #b3d7ff;
+				}
+				input:checked+label::before {
+					border-color: #0b76ef;
+					background-color: #0b76ef;
+					background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+					background-size: 20px;
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
+				span {
+					@include text-style(300, 16px, 20px, #333);
+				}
+			}
+			button {
+				width: 180px;
+				height: 50px;
+				background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+				border-radius: 9px;
+				border: none;
+				@include text-style(600, 16px, 26px, #fff);
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+	.specialist-order__logo {
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+}
+.works {
+	margin: 112px 115px;
+	height: max-content;
+	.works__title {
+		@include text-style(bold, 38px, 48px, #333);
+	}
+	.works__field {
+		@extend %flex;
+		flex-wrap: wrap;
+		margin: 0 -25px;
+		.works__field_card {
+			@extend %equal_indents;
+			margin: 41px 25px 0;
+			width: 490px;
+			max-width: 490px;
+			height: max-content;
+			background: #fff;
+			box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.08);
+			border-radius: 15px;
+			padding: 20px;
+			.works__field_card_description {
+				@include text-style(normal, 16px, 26px, #333);
+				margin-bottom: 24px;
+			}
+			.works__field_card_result {
+				background: #F3F1FE;
+				margin: 0 -20px 24px;
+				padding: 10px 20px;
+				.works__field_card_result_title {
+					@include text-style(800, 18px, 26px, #333);
+					margin-bottom: 10px;
+				}
+				.works__field_card_result_list {
+					display: flex;
+					justify-content: center;
+					align-items: flex-start;
+					margin: 0 -10px;
+					.works__field_card_result_item {
+						@extend %equal_indents;
+						margin: 0 10px;
+						.works__field_card_result_item_title {
+							@include text-style(800, 18px, 26px, #333);
+						}
+						.works__field_card_result_item_subtitle {
+							@include text-style(400, 14px, 26px, #333);
+						}
+					}
+				}
+			}
+			.works__field_card_systems_title {
+				margin-bottom: 13px;
+				@include text-style(800, 18px, 26px, #333);
+			}
+			.works__field_card_systems-list {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
+.footer {
+	width: 100%;
+	background: #fff;
+	padding: 50px 0 70px;
+	@extend %flex;
+	.footer__item {
+		@extend %equal_indents;
+		margin: 0 115px;
+		img {
+			width: 275px;
+		}
+		.footer__item_policy {
+			margin: 5px 12px 22px;
+			@include text-style(normal, 16px, 24px, #333);
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+		button {
+			margin-left: 12px;
+			width: 180px;
+			height: 50px;
+			background: linear-gradient(115.11deg, #F32C6D 10.12%, #CB1D95 100.01%);
+			border-radius: 9px;
+			border: none;
+			@include text-style(600, 16px, 26px, #fff);
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+		.footer__item_title {
+			margin-bottom: 13px;
+			@include text-style(600, 16px, 36px, #333);
+		}
+		li {
+			margin: 1px 0;
+			@include text-style(normal, 16px, 36px, #333);
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+	@media (max-width: 1300px) {
+		.footer__item {
+			margin: 0 50px;
+		}
+	}
+}
+@media (max-width: 1300px) {
+	.works__title {
+		width: 100%;
+		text-align: center;
+	}
+	.services__title {
+		width: 100%;
+		text-align: center;
+	}
+	.header__logo img {
+		width: 250px;
+	}
+}
+.copyright {
+	@extend %flex;
+	background: #2D2D2D;
+	padding: 3px 0 2px;
+	@include text-style(normal, 14px, 36px, #fff);
+}
+@font-face {
+	font-family: "Manrope";
+	src: url("../fonts/Manrope-VariableFont_wght.ttf") format("truetype");
+	font-style: normal;
+}
